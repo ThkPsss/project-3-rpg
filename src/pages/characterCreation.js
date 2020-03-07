@@ -32,3 +32,5 @@ class characterCreation extends Component {
 
     }
 }
+
+export default characterCreation
