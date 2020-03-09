@@ -1,5 +1,6 @@
 import React, { Component } from "react"
 import Hero from "../components/Hero"
+import Footer from "../components/Footer"
 
 class Opening extends Component {
     handleFormSubmit = event => {
@@ -14,6 +15,7 @@ class Opening extends Component {
                     <h1>Steam Punk RPG</h1>
                     <h2>The Steam Punk Battler RPG!</h2>
                 </Hero>
+                <Footer />
             </div>
         )
     }
