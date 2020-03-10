@@ -7,9 +7,19 @@ class characterCreation extends Component {
             level: 0,
             race: "",
             class: "",
-            health: 0,
-            attack: 0,
-            defense: 0,
+            //Strenght: Effects Physical attacks made by the player
+            str: 0,
+            //Dexterity: Effects Ranged attacks and other movement based things
+            dex: 0,
+            //Constitution: Effects the Character's Health. For every point of Con the player will get ___ Hit Points (HP)
+            con: 0,
+            //Intelligence: Effects magic attaks
+            int: 0,
+            //Wisdom
+            wis: 0,
+            //Charisma
+            cha: 0,
+            //These skills will come from the class they choose (Some races may have skills like Dragonborn)
             skills: []
         }
         function raceSelection() {
