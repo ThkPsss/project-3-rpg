@@ -2,76 +2,133 @@ import React, { Component } from "react"
 import API from "../utils/API"
 
 class characterCreation extends Component {
-    createCharacter() {
-        let character = {
-            level: 0,
-            race: "",
-            class: "",
-            //Strenght: Effects Physical attacks made by the player
-            str: 0,
-            //Dexterity: Effects Ranged attacks and other movement based things
-            dex: 0,
-            //Constitution: Effects the Character's Health. For every point of Con the player will get ___ Hit Points (HP)
-            con: 0,
-            //Intelligence: Effects magic attaks
-            int: 0,
-            //Wisdom
-            wis: 0,
-            //Charisma
-            cha: 0,
-            //These skills will come from the class they choose (Some races may have skills like Dragonborn)
-            skills: []
-        }
-        function raceSelection() {
-
-            //Create Human
-            function selectHuman() {
-                //Setting the player's race to human
-                character.race = API.getRace("human")
-            }
-
-            //Create Dwarf
-            function selectDwarf() {
-                //Setting the player's race to Dwarf
-                character.race = API.getRace("dwarf")
-            }
-
-            //Create Elf
-            function selectElf() {
-                //Setting the player's race to Elf
-                character.race = API.getRace("elf")
-            }
-        }
-        function characterSelection() {
-            
-            //Create Wizard
-            function selectWizard() {
-                //Setting the player's class to Wizard
-                character.class = API.getClass("wizard")
-                //With the class selected, the player inherits two of the class' skills.
-            }
-
-            //Create Warrior
-            function selectFighter() {
-                //Setting the player's class to Fighter
-                character.class = API.getClass("fighter")
-                //With the class selected, the player inherits two of the class' skills.
-
-            }
-
-            //Create Ranger
-            function selectRanger() {
-                //Setting the player's class to Ranger
-                character.class = API.getClass("ranger")
-                //With the class selected, the player inherits two of the class' skills.
-            }
-        }
-
+    state = {
+        level: 0,
+        race: "",
+        class: "",
+        //Hit points are calculated by the 
+        hitPoints: 0,
+        //Strenght: Effects Physical attacks made by the player
+        str: 0,
+        //Dexterity: Effects Ranged attacks and other movement based things
+        dex: 0,
+        //Constitution: Effects the Character's Health. For every point of Con the player will get ___ Hit Points (HP)
+        con: 0,
+        //Intelligence: Effects magic attaks
+        int: 0,
+        //Wisdom
+        wis: 0,
+        //Charisma
+        cha: 0,
+        //These skills will come from the class they choose (Some races may have skills like Dragonborn)
+        skills: []
     }
+    handleRace = event => {
+        const btnType = event.target.attributes.getNamedItem("data-value").value
+
+        API.getRace(btnType)
+        .then(res =>
+            this.setState({
+                name: res.data.name,
+                skills: res.data.proficiency_choices,
+                hitDie: res.data.hit_die
+            })
+        )
+        .catch(err => console.log(err))
+
+        const newState = { ...this.state }
+
+        if (btnType === "human") {
+
+            newState.race = this.getRaceData
+
+            newState.str += 1
+            newState.dex += 1
+            newState.con += 1
+            newState.int += 1
+            newState.wis += 1
+            newState.cha += 1 
+        }
+        else if (btnType ===  "elf") {
+
+            newState.race = this.getRaceData
+
+            newState.dex += 2
+        }
+        else if (btnType === "dwarf") {
+
+            newState.race = this.getRaceData
+
+            newState.con += 2
+        }
+
+        this.setState(newState)
+    }
+
+    handleClass = event => {
+        const btnType = event.target.attributes.getNamedItem("data-value").value
+
+        const newState = { ...this.state }
+
+        if (btnType === "figher") {
+
+            newState.class = this.getClassData
+        }
+        else if (btnType ===  "ranger") {
+
+            newState.class = this.getClassData
+        }
+        else if (btnType === "wizard") {
+
+            newState.class = this.getClassData
+        }
+
+        this.setState(newState)
+    }
+
+    getClassData = (buttonValue) => {
+        API.getRace(buttonValue)
+        .then(res =>
+            this.setState({
+                name: res.data.name,
+                skills: res.data.proficiency_choices,
+                hitDie: res.data.hit_die
+            })
+        )
+        .catch(err => console.log(err))
+    }    
+
+    getRaceData = (buttonValue) => {
+        API.getRace(buttonValue)
+        .then(res =>
+            this.setState({
+                name: res.data.name
+            })
+        )
+        .catch(err => console.log(err))
+    }    
     render() {
         return(
-            <div>
+            <div id="character-creation">
                 <h1>Character Creation Screen</h1>
+                <br></br>
+                <br></br>
+                <h2>Race Selection</h2>
+                
+                <br></br>
+                <br></br>
+                <h2>Class Selection</h2>
+                <select name="class" size="3" multiple>
+                    <option value="fighter">Fighter: Close Combat Fighter!</option>
+                    <option value="ranger">Ranger: Long Range Figher!</option>
+                    <option value="wizard">Wizard: Keeper of Magic!</option>
+                </select>
+                <br></br>
+                <br></br>
+                <br></br>
+                <buttonm type="submit" onClick={this.handleRace} className="btn btn-success">
+                    Submit
+                </buttonm>
             </div>
         )
     }
