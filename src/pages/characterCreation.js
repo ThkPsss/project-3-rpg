@@ -21,7 +21,9 @@ class characterCreation extends Component {
         //Charisma
         cha: 0,
         //These skills will come from the class they choose (Some races may have skills like Dragonborn)
-        skills: []
+        skills: [],
+        //Abilties
+        abilties: []
     }
     handleRace = event => {
         const btnType = event.target.attributes.getNamedItem("data-value").value
