@@ -1,6 +1,6 @@
 import React, { Component } from "react"
 import API from "../utils/API"
-import SelectBox, { Componnet } from './components/select-box'
+import SelectBox, { Componnet } from '../components/select-box'
 
 
 class characterCreation extends Component {
@@ -129,18 +129,36 @@ class characterCreation extends Component {
                 />
                 <br></br>
                 <br></br>
+                <br></br>
+                <br></br>
+                <br></br>
+                <br></br>
                 <h2>Class Selection</h2>
-                <select name="class" size="3" multiple>
-                    <option value="fighter">Fighter: Close Combat Fighter!</option>
-                    <option value="ranger">Ranger: Long Range Figher!</option>
-                    <option value="wizard">Wizard: Keeper of Magic!</option>
-                </select>
+                <SelectBox 
+                    width={200}
+                    name="race_id"
+                    items={[
+                        { value: `Fighter`, id: 1},
+                        { value: `Ranger`, id: 2},
+                        { value: `Wizard`, id: 3},
+                    ]}
+                />
                 <br></br>
                 <br></br>
                 <br></br>
-                <buttonm type="submit" onClick={this.handleRace} className="btn btn-success">
+                <br></br>
+                <br></br>
+                <br></br>
+                <br></br>
+                <br></br>
+                <br></br>
+                <button type="submit" onClick={this.handleRace} className="btn btn-success">
                     Submit
-                </buttonm>
+                </button>
+                <br></br>
+                <br></br>
+                <br></br>
+                <br></br>
             </div>
         )
     }

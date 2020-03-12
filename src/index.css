@@ -42,3 +42,6 @@ div[data-reactroot] {
   background-image: url(https://i.pinimg.com/originals/ea/3f/d3/ea3fd3102ccf575e3c33954f73eab78d.jpg);
   color: white;
 }
+#main-text {
+  text-align: center;
+}

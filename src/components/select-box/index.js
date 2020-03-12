@@ -57,7 +57,7 @@ class SelectBox extends React.Component {
             </div>
             <input 
             type="hidden"
-            value={this.state.selectItem.id} 
+            value={this.state.selectItem} 
             name={this.state.name}
             />
         </div>
