@@ -5,7 +5,12 @@ import API from "../utils/API"
 
 class gameMenu extends Component {
 
+//Here we would somehow set state
+
+//Game function to work the game in the backend
     Game () {
+
+        //Test objs. I am not sure how to send it back to the HTML
         var testHuman = {
             level: 1,
             race: "Human",
@@ -74,14 +79,19 @@ class gameMenu extends Component {
             skills: [],
             abilties: ["Acrobatics","Athletics"]
         }
+        //Basic attack function that will run when when the player or the enemy attacks
         function basicAttack(attacker, defender) {
             let damage
             if (attacker.str >= defender.con) {
+                //When attackers str is equal or higher then the defenders con, the attack will hit
+                //Damage is calclated randomly
                 damage = Math.floor(Math.random() * 10)
+                //Subtracts the defenders hitPoints from the ammount of damage taken
                 defender.hitPoints -= damage
                 console.log(`The Defender took ${damage}. The Defender now has ${defender.hitPoints}.`)
             }
             else {
+                //If the attacker's str is less then the defender's con, the attack will not connect
                 console.log(`The Attack has missed!`)
             }
         }
@@ -95,7 +105,16 @@ class gameMenu extends Component {
     render(){
         return(
             <div>
-                <h1>Battle!</h1>
+                <h1 id="title">Game Page</h1>
+                <br></br>
+                <br></br>
+                <br></br>
+                <div id="game-center">
+                    <main>
+                        <h4>
+\                       </h4>
+                    </main>
+                </div>
             </div>
         )
     }
