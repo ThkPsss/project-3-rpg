@@ -1,11 +1,10 @@
 import React from "react";
 import "./style.css";
 
-function Battler () {
+function Battler (props) {
     return (
-        <div className="col-xs"></div>
+        <div>Players</div>
     )
-
 }
 
 export default Battler

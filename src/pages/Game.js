@@ -1,14 +1,29 @@
 import React, { Component } from "react"
-import characterCreation from "../pages/characterCreation"
 import Battler from "../components/Battler"
-import API from "../utils/API"
+
 
 class gameMenu extends Component {
+
+
+
+    render() {
+        return(
+            <Battler />
+        )
+    }
+}
+
+export default gameMenu
+
+
+
+
+
 
 //Here we would somehow set state
 
 //Game function to work the game in the backend
-    Game () {
+    /*Game () {
 
         //Test objs. I am not sure how to send it back to the HTML
         var testHuman = {
@@ -101,24 +116,4 @@ class gameMenu extends Component {
 
     Defend(defender) {
         defender.defense *= .5
-    }
-    render(){
-        return(
-            <div>
-                <h1 id="title">Game Page</h1>
-                <br></br>
-                <br></br>
-                <br></br>
-                <div id="game-center">
-                    <main>
-                        <h4>
-                            
-                       </h4>
-                    </main>
-                </div>
-            </div>
-        )
-    }
-}
-
-export default gameMenu
+    }*/
