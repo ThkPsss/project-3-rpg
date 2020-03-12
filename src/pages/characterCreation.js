@@ -1,5 +1,7 @@
 import React, { Component } from "react"
 import API from "../utils/API"
+import SelectBox, { Componnet } from './components/select-box'
+
 
 class characterCreation extends Component {
     state = {
@@ -116,7 +118,15 @@ class characterCreation extends Component {
                 <br></br>
                 <br></br>
                 <h2>Race Selection</h2>
-                
+                <SelectBox 
+                    width={200}
+                    name="race_id"
+                    items={[
+                        { value: `Human`, id: 1},
+                        { value: `Elf`, id: 2},
+                        { value: `Dwarf`, id: 3},
+                    ]}
+                />
                 <br></br>
                 <br></br>
                 <h2>Class Selection</h2>
