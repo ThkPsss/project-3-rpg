@@ -112,7 +112,8 @@ class gameMenu extends Component {
                 <div id="game-center">
                     <main>
                         <h4>
-\                       </h4>
+                            
+                       </h4>
                     </main>
                 </div>
             </div>
