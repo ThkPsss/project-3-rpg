@@ -4,7 +4,7 @@
 
 .select-box--box {
     position: absolute;
-    left: 0;
+    right: 44%;
 }
 
 .select-box--container {
@@ -44,7 +44,7 @@
 }
 
 .select-box--items div.selected {
-    background-image: url('../../../public/confirmed.png');
+    background-image: url('../../confirmed.png');
     background-size: 16px;
     background-repeat: no-repeat;
     background-position: 2px 8px;
